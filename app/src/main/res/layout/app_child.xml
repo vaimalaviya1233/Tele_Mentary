@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        app:cardCornerRadius="17dp"
+        app:cardElevation="@dimen/cardview_default_elevation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constrain_view_cardview"
+            android:layout_width="match_parent"
+            android:paddingBottom="5dp"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/app_icon"
+                android:layout_width="67dp"
+                android:layout_height="67dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:contentDescription="@string/app_icon"
+                android:src="@color/design_default_color_on_primary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.Avatar" />
+
+            <TextView
+                android:id="@+id/app_name"
+                android:layout_width="188dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="32dp"
+                android:autoSizeMinTextSize="16sp"
+                android:autoSizeTextType="uniform"
+                android:lines="2"
+                android:text="@string/appname"
+                app:layout_constraintEnd_toStartOf="@+id/info_more"
+                app:layout_constraintStart_toEndOf="@+id/app_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/package_address"
+                android:layout_width="223dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/appadd"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/app_name"
+                app:layout_constraintTop_toBottomOf="@+id/app_name" />
+
+            <Button
+                android:id="@+id/suspend"
+                style="@android:style/Widget.Material.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="20dp"
+                android:drawableLeft="@drawable/disable"
+                android:text="@string/suspnd"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/app_icon" />
+
+            <Button
+                android:id="@+id/unsuspend"
+                style="@android:style/Widget.Material.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/enable"
+                android:text="@string/unsuspnd"
+                android:textColor="@color/greenlight"
+                app:layout_constraintBottom_toBottomOf="@+id/suspend"
+                app:layout_constraintStart_toEndOf="@+id/suspend"
+                app:layout_constraintTop_toTopOf="@+id/suspend" />
+
+            <Button
+                android:id="@+id/delete"
+                style="@android:style/Widget.Material.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/delete"
+                android:text="@string/uninstall"
+                android:textColor="@color/lightred"
+                app:layout_constraintBottom_toBottomOf="@+id/suspend"
+                app:layout_constraintStart_toEndOf="@+id/unsuspend"
+                app:layout_constraintTop_toTopOf="@+id/unsuspend" />
+
+            <ImageButton
+                android:id="@+id/info_more"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="18dp"
+                android:background="#00FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/package_address"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/app_name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/info_more"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/play_store"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:text="@string/play_str"
+                android:textColor="@color/orange_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/unsuspend" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

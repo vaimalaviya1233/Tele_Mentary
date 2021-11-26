@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Tele Mentary</string>
+    <string name="suspnd">Suspend</string>
+    <string name="unsuspnd">Unsuspend</string>
+    <string name="uninstall">Delete</string>
+    <string name="appname">App Name</string>
+    <string name="appadd">package Address</string>
+    <string name="app_icon">App Icon</string>
+    <string name="play_str">Open Play Store</string>
+</resources>
