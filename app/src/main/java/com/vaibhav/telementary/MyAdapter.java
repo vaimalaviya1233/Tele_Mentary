@@ -83,5 +83,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             info_more = recycler_view.findViewById(R.id.info_more);
             play_store = recycler_view.findViewById(R.id.play_store);
         }
+
     }
 }

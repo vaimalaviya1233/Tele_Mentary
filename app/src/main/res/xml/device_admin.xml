@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<device-admin>
+    <uses-policies>
+        <disable-camera></disable-camera>
+        <disable-keyguard-features></disable-keyguard-features>
+        <force-lock></force-lock>
+        <reset-password></reset-password>
+        <limit-password></limit-password>
+        <set-global-proxy></set-global-proxy>
+        <watch-login></watch-login>
+    </uses-policies>
+</device-admin>
