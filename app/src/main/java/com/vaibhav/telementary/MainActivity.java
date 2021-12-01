@@ -1,20 +1,15 @@
 package com.vaibhav.telementary;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.util.Log;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.util.Objects;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -42,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(context,"ERROR While setting MyADAPTER",Toast.LENGTH_SHORT).show();
                 Log.e("ERROR","Error in myAdaptor :(");
             }
+
         });
 
 
@@ -56,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     protected void onPause() {
-        super.onDestroy();
+        super.onPause();
         clearCacher();
     }
 
