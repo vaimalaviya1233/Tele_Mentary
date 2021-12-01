@@ -11,3 +11,4 @@ Uninstalling app will work on most of the android versions no later than android
 
 disabling apps through admin will be great idea. but it is in work ,and android 9,10,11,12 made
 significant changes to device admin and dpm apis.
+
