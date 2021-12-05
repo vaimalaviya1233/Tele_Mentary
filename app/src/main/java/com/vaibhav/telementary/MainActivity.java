@@ -41,15 +41,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        clearCacher();
-    }
+    protected void onStop() {
+        super.onStop();
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        clearCacher();
     }
 
     private void clearCacher() {

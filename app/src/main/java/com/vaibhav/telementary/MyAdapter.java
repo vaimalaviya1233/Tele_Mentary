@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     Context context;
     PackageManager packageManager;
     private final appProperties app;
+    private final int sizeTotal;
     public MyAdapter(@NonNull Context ct) throws PackageManager.NameNotFoundException {
         context = ct;
         this.app = new appProperties(context);
         packageManager = app.pm;
+        sizeTotal = app.packageSize;
     }
     @NonNull
     @Override
@@ -54,16 +57,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 //                Toast.makeText(context,e.toString(),Toast.LENGTH_LONG).show();//debug version only
 //                //Toast.makeText(context, "Error while Suspending App",Toast.LENGTH_SHORT).show();
 //            }
-            packageManager.setApplicationEnabledSetting(packageAdd, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.SYNCHRONOUS);
+            packageManager.setApplicationEnabledSetting(packageAdd, PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER, PackageManager.SYNCHRONOUS);
         });
-        main_view.unsuspend.setOnClickListener(v -> {
-            packageManager.setApplicationEnabledSetting(packageAdd, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.SYNCHRONOUS);
-        });
+        main_view.unsuspend.setOnClickListener(v -> packageManager.setApplicationEnabledSetting(packageAdd, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, PackageManager.SYNCHRONOUS));
+        if (position == sizeTotal) {
+            Toast.makeText(new MainActivity(), " --- MyAdapter Loading Finished ---", Toast.LENGTH_SHORT).show();
+            Log.d("MyAdapter", " Loading of MyAdapter Completed");
+        }
     }
 
     @Override
     public int getItemCount() {
-        return app.packageSize;
+        return sizeTotal;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
