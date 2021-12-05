@@ -34,15 +34,10 @@ public class MainActivity extends AppCompatActivity {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } catch (NameNotFoundException e) {
                 e.printStackTrace();
-                Toast.makeText(context,"ERROR While setting MyADAPTER",Toast.LENGTH_SHORT).show();
-                Log.e("ERROR","Error in myAdaptor :(");
+                Toast.makeText(context, "ERROR While setting MyADAPTER", Toast.LENGTH_SHORT).show();
+                Log.e("ERROR", "Error in myAdaptor :( ");
             }
-
         });
-
-
-
-
     }
 
     @Override
@@ -50,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         clearCacher();
     }
+
     @Override
     protected void onPause() {
         super.onPause();
