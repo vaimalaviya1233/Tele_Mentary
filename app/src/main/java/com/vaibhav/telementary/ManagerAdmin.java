@@ -9,6 +9,8 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.anggrayudi.hiddenapi.InternalAccessor;
+
 public class ManagerAdmin extends DeviceAdminReceiver {
     ComponentName mDevice_admin;
 
@@ -21,5 +23,6 @@ public class ManagerAdmin extends DeviceAdminReceiver {
         DevicePolicyManager policyManager = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
         policyManager.setCameraDisabled(mDevice_admin, true);
         policyManager.getCameraDisabled(mDevice_admin);
+        InternalAccessor.
     }
 }
