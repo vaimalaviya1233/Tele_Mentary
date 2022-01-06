@@ -16,11 +16,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.io.IOException;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     Context context;
     PackageManager packageManager;
     private final appProperties app;
     private final int sizeTotal;
+
     public MyAdapter(@NonNull Context ct) throws PackageManager.NameNotFoundException {
         context = ct;
         this.app = new appProperties(context);
@@ -57,11 +61,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 //                Toast.makeText(context,e.toString(),Toast.LENGTH_LONG).show();//debug version only
 //                //Toast.makeText(context, "Error while Suspending App",Toast.LENGTH_SHORT).show();
 //            }
-            packageManager.setApplicationEnabledSetting(packageAdd, PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER, PackageManager.SYNCHRONOUS);
+            try {
+                Runtime.getRuntime().exec("pm suspend " + packageAdd);
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(context, " Error in Runtime exec suspend ", Toast.LENGTH_LONG).show();
+            }
+//            packageManager.setApplicationEnabledSetting(packageAdd, PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER, PackageManager.SYNCHRONOUS);
         });
         main_view.unsuspend.setOnClickListener(v -> packageManager.setApplicationEnabledSetting(packageAdd, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, PackageManager.SYNCHRONOUS));
         if (position == sizeTotal) {
-            Toast.makeText(new MainActivity(), " --- MyAdapter Loading Finished ---", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, " --- MyAdapter Loading Finished ---", Toast.LENGTH_SHORT).show();
             Log.d("MyAdapter", " Loading of MyAdapter Completed");
         }
     }
