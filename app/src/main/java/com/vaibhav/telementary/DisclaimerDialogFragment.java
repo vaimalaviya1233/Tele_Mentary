@@ -1,0 +1,31 @@
+package com.vaibhav.telementary;
+
+import android.app.Dialog;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+
+public class DisclaimerDialogFragment extends DialogFragment {
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+        builder.setTitle(R.string.title_dialog_disclaimer)
+                .setMessage(R.string.body_dialog_disclaimer)
+                .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                    SharedPreferences editor = PreferenceManager.getDefaultSharedPreferences(requireActivity().getBaseContext());
+                    editor.edit().putBoolean("disclaimer_accepted", true).apply();
+                })
+                .setNegativeButton(android.R.string.cancel, (dialog, which) -> {
+                    SharedPreferences editor = PreferenceManager.getDefaultSharedPreferences(requireActivity().getBaseContext());
+                    editor.edit().putBoolean("disclaimer_accepted", false).apply();
+                    requireActivity().finish();
+                });
+
+        return builder.create();
+    }
+}
