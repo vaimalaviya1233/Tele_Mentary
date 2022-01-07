@@ -52,8 +52,8 @@
             <TextView
                 android:id="@+id/package_address"
                 android:layout_width="223dp"
-                android:layout_height="14dp"
-                android:layout_marginTop="5dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="3dp"
                 android:text="@string/appadd"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/app_name"
@@ -126,6 +126,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/unsuspend" />
+
+            <TextView
+                android:id="@+id/appSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/app_size"
+                android:textColor="@color/primary_500"
+                app:layout_constraintStart_toStartOf="@+id/package_address"
+                app:layout_constraintTop_toBottomOf="@+id/package_address" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

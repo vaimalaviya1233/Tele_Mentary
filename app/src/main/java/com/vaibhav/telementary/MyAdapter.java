@@ -82,7 +82,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView appName, package_address;
+        TextView appName, package_address, appsize;
         Button suspend, unsuspend, delete, play_store;
         ImageView icon;
         ImageButton info_more;
@@ -90,6 +90,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(@NonNull View recycler_view) {
             super(recycler_view);
             appName = recycler_view.findViewById(R.id.app_name);
+            appsize = recycler_view.findViewById(R.id.appSize);
             package_address = recycler_view.findViewById(R.id.package_address);
             suspend = recycler_view.findViewById(R.id.suspend);
             unsuspend = recycler_view.findViewById(R.id.unsuspend);
